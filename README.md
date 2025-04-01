@@ -1,136 +1,104 @@
-# Streamlit Template
+# Learning Objectives Chatbot
 
-A modern Python template for Streamlit applications using `uv` for dependency management. This template demonstrates best practices for Streamlit app development, including testing, CI/CD, and code quality tools.
+A Streamlit-based chatbot application that helps educators and instructional designers create effective learning objectives through guided conversation.
 
 ## Features
 
-- 📊 Streamlit application template with sample components
-- 🧪 Full test suite using pytest
-- 📦 Modern Python packaging with `pyproject.toml`
-- 🚀 Fast dependency management with `uv`
-- ⚡ GitHub Actions CI/CD pipeline
-- 🔍 Code quality tools (ruff, black, mypy)
-- 🪝 Pre-commit hooks for code quality
+- Interactive chatbot that guides users through creating learning objectives
+- Analysis of learning objectives based on Bloom's Taxonomy
+- Suggestions for improving learning objectives
+- Sample objectives for reference
+- History tracking of created objectives
 
-## Quick Start
+## Getting Started
 
-1. Create a new project:
+### Prerequisites
+
+- Python 3.12 or higher
+- uv package manager (`pip install uv`)
+
+### Installation
+
+1. Clone the repository:
 ```bash
-# Initialize new project with uv
-uv init --lib streamlit-template
-cd streamlit-template
+git clone https://github.com/yourusername/learning-objectives-chatbot.git
+cd learning-objectives-chatbot
+```
 
-# Create and activate virtual environment
+2. Set up the Python environment:
+```bash
 uv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ```
 
-2. Install dependencies:
+3. Activate the virtual environment:
 ```bash
-# Install project in editable mode with development dependencies
-uv pip install -e ".[dev]"
+# On Windows:
+.venv\Scripts\activate
 
-# Setup pre-commit hooks
-pre-commit install
+# On macOS/Linux:
+source .venv/bin/activate
 ```
 
-3. Run the application:
+4. Install dependencies:
 ```bash
-python -m streamlit run src/streamlit_template/app.py
+uv sync
 ```
+
+### Running the Application
+
+Run the Streamlit app:
+```bash
+streamlit run src/learning_objectives_chatbot/app.py
+```
+
+The app will be accessible at http://localhost:8501 by default.
+
+## Project Structure
+
+```
+.
+├── README.md                          # Project overview
+├── pyproject.toml                     # Python project metadata and dependencies
+└── src/
+    └── learning_objectives_chatbot/   # Main package
+        ├── __init__.py                # Package initialization
+        ├── app.py                     # Main Streamlit application
+        └── utils.py                   # Utility functions for chatbot
+```
+
+## How It Works
+
+1. The chatbot guides users through a series of questions about their teaching subject, desired learning level, and assessment methods.
+2. Based on user responses, the chatbot generates learning objectives following best practices.
+3. The system analyzes objectives using Bloom's Taxonomy and provides suggestions for improvement.
+4. Users can refine objectives or create new ones for different aspects of their subject.
+
+## Bloom's Taxonomy Levels
+
+The chatbot uses Bloom's Taxonomy to structure learning objectives at appropriate cognitive levels:
+
+1. **Remember**: Recall facts and basic concepts
+2. **Understand**: Explain ideas or concepts
+3. **Apply**: Use information in new situations
+4. **Analyze**: Draw connections among ideas
+5. **Evaluate**: Justify a stand or decision
+6. **Create**: Produce new or original work
 
 ## Development
 
-### Project Structure
-```
-streamlit-template/
-├── src/
-│   ├── streamlit_template/
-│   │   ├── __init__.py
-│   │   ├── app.py
-│   │   └── utils.py
-│   └── tests/
-│       ├── __init__.py
-│       ├── conftest.py
-│       └── test_utils.py
-├── .gitignore
-├── .pre-commit-config.yaml
-├── pyproject.toml
-└── README.md
+### Adding Dependencies
+
+```bash
+# Add a package
+uv add package-name
 ```
 
 ### Testing
-Run the test suite:
+
 ```bash
 pytest
 ```
 
-Run with coverage:
-```bash
-pytest --cov=streamlit_template
-```
-
-### Code Quality
-The project uses several tools to maintain code quality:
-
-- **ruff**: Fast Python linter
-  ```bash
-  ruff check .
-  ```
-
-- **black**: Code formatter
-  ```bash
-  black .
-  ```
-
-- **mypy**: Static type checker
-  ```bash
-  mypy src
-  ```
-
-All of these checks run automatically on git commit through pre-commit hooks and in the CI pipeline.
-
-## Deployment
-
-### Local Development
-For local development:
-```bash
-streamlit run src/streamlit_template/app.py
-```
-
-### Streamlit Cloud
-1. Push your code to GitHub
-2. Go to [Streamlit Cloud](https://streamlit.io/cloud)
-3. Connect your GitHub repository
-4. Select your main file: `src/streamlit_template/app.py`
-
-The GitHub Actions workflow will run tests automatically on push and pull requests.
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Make your changes
-4. Run tests and quality checks:
-   ```bash
-   pytest
-   ruff check .
-   black .
-   mypy src
-   ```
-5. Commit your changes
-6. Push to your fork
-7. Create a Pull Request
-
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- [Streamlit](https://streamlit.io/) - For the amazing framework
-- [uv](https://github.com/astral-sh/uv) - For fast Python package management
-- [ruff](https://github.com/astral-sh/ruff) - For the lightning-fast Python linter
+[MIT](LICENSE)
