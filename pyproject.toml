@@ -1,18 +1,31 @@
 [project]
-name = "streamlit-template"
+name = "learning-objectives-chatbot"
 version = "0.1.0"
-description = "Add your description here"
+description = "A Streamlit chatbot for creating effective learning objectives"
 readme = "README.md"
 authors = [
-    { name = "Rick Anderson", email = "rianders@docs.rutgers.edu" }
+    { name = "Michael Gradin", email = "michael.gradin@uoes.rutgers.edu" }
 ]
 requires-python = ">=3.12"
 dependencies = [
     "numpy>=2.2.3",
     "pandas>=2.2.3",
     "streamlit>=1.42.1",
+    "streamlit-chat>=0.1.1",
 ]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.build]
+packages = ["src/learning_objectives_chatbot"]
+
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "black>=23.7.0",
+    "mypy>=1.5.1",
+    "ruff>=0.0.287",
+]
